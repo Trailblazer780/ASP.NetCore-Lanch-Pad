@@ -1,0 +1,32 @@
+﻿@model LaunchPadModel;
+
+<div>
+    <span><h1 class="text-info">INET2005 Project 3 --- Launch Pad <form asp-controller="Login" asp-action="Index" ><input class="btn btn-info" type="Submit" value="Login"></form></h1></span>
+
+    <div class="container">
+        <div class="row">
+            @* Loop through the category names *@
+            @foreach(var item in Model.categories){
+                <div class="col"><h3>@item.categoryName</h3>
+                @* Loop through the links for the category that are favourite *@
+                @foreach(var link in Model.links){
+                    if(link.categoryID == item.id && link.favourite == "true"){
+                        <div class="col-md" style="padding-bottom: 4px;"><img src="https://www.google.com/s2/favicons?domain_url=@link.linkURL"><a href="@link.linkURL" target="_blank"> @link.linkName</a></div>
+                    }
+                }
+                @* Count how many favourite links there are are make the line if there are *@
+                @if(Model.countLinks(item.id) > 0){
+                    <hr>
+                }
+                @* Loop through the links for the category that are not favourite *@
+                @foreach (var link in Model.links)
+                {
+                    if(link.categoryID == item.id && link.favourite == "false"){
+                        <div class="col-md" style="padding-bottom: 4px;"><img src="https://www.google.com/s2/favicons?domain_url=@link.linkURL"><a href="@link.linkURL" target="_blank"> @link.linkName</a></div>
+                    }
+                }
+                </div>
+            }
+        </div>
+    </div>
+</div>

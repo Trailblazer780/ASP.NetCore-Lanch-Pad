@@ -1,0 +1,36 @@
+@model Links;
+
+<div>
+    <span><h1 class="text-info">INET2005 Project 3 --- Launch Pad -- Delete Link <form asp-controller="Admin" asp-action="Logout" ><input class="btn btn-info" type="Submit" value="Logout"></form></h1></span>
+    <span id="lblExpire" class="text-warning" style="margin-left:10px; font-size: medium;"></span>
+    <div class="container">      
+        <div class="row">
+            <div class="row" style="padding-top: 5px;">
+                <h3>Delete Link Below</h3>
+            </div>
+            <div class="row">
+                <form>
+                    <input type="hidden" name="linkID" asp-for="@Model.id">
+                    <div>
+                        Are you sure you want to delete this link?
+                    </div>
+                    <div style="padding: 5px;">
+                        <span><h4><img src="https://www.google.com/s2/favicons?domain_url=@Model.linkURL">    @Model.linkName | @Model.linkURL</h4></span>
+                    </div>
+                    <div class="form-row" style="padding-left: 5px;">
+                        <div>
+                            <span><button class="btn btn-info" type="submit" asp-controller="Admin" asp-action="DeleteLinkSubmit">Delete</button></span>
+                            <span><a asp-controller="Admin" asp-action="Index"><input type="button" class="btn btn-info" value="Cancel"></a></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        startAutoLogout();
+    </script>
+}

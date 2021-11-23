@@ -1,0 +1,84 @@
+@model LaunchPadAdminModel;
+
+<div>
+    <span><h1 class="text-info">INET2005 Project 3 --- Launch Pad -- ADMIN <form asp-controller="Admin" asp-action="Logout" ><input class="btn btn-info" type="Submit" value="Logout"></form></h1></span>
+    <span id="lblExpire" class="text-warning" style="margin-left:10px; font-size: medium;"></span>
+    <div class="container">
+        <div class="row">
+            @* Loop through categories *@
+            @foreach(var item in Model.categories){
+                <div class="col">
+                    <h3>@item.categoryName
+                        <span>
+                        <form>
+                            <input type="hidden" name="id" value="@item.id">
+                            <input type="hidden" name="cName" value="@item.categoryName">
+                            <button type="submit" class="btn btn-info" asp-controller="Admin" asp-action="AddLink"><i class="fa fa-plus"></i></button>
+                        </form>
+                        <form>
+                            <input type="hidden" value="@item.categoryName" name="cName">
+                            <input type="hidden" value="@item.id" name="cId">
+                            <button type="submit" class="btn btn-info" asp-controller="Admin" asp-action="EditCategory"><i class="fa fa-pencil"></i></button>
+                        </form>
+                        </span>
+                    </h3><br>
+                @* Loop through links that are favourites *@
+                @foreach(var link in Model.links){
+                    if(link.categoryID == item.id && link.favourite == "true"){
+                        <div class="col-md" style="padding-bottom: 4px;">
+                            <form>
+                                <input type="hidden" name="editLinkID" value="@link.id">
+                                <input type="hidden" name="categoryID" value="@item.id">
+                                <input type="hidden" name="editLinkName" value="@link.linkName">
+                                <input type="hidden" name="editLinkURL" value="@link.linkURL">
+                                <input type="hidden" name="editFavourite" value="@link.favourite">
+                                <button type="submit" class="btn btn-info" asp-controller="Admin" asp-action="EditLink"><i class="fa fa-pencil"></i></button>
+                            </form>
+                            <form>
+                                <input type="hidden" name="DeleteLinkID" value="@link.id">
+                                <input type="hidden" name="DeleteLinkName" value="@link.linkName">
+                                <input type="hidden" name="DeleteLinkURL" value="@link.linkURL">
+                                <button tpye="submit" class="btn btn-danger" asp-controller="Admin" asp-action="DeleteLink"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <img src="https://www.google.com/s2/favicons?domain_url=@link.linkURL"><a href="@link.linkURL" target="_blank"> @link.linkName</a>
+                        </div>
+                    }
+                }
+                @* Display line if needed *@
+                @if(Model.countLinks(item.id) > 0){
+                    <hr>
+                }
+                @* Loop through links that are not favourites *@
+                @foreach (var link in Model.links)
+                {
+                    if(link.categoryID == item.id && link.favourite == "false"){
+                        <div class="col-md" style="padding-bottom: 4px;">
+                            <form>
+                                <input type="hidden" name="editLinkID" value="@link.id">
+                                <input type="hidden" name="categoryID" value="@item.id">
+                                <input type="hidden" name="editLinkName" value="@link.linkName">
+                                <input type="hidden" name="editLinkURL" value="@link.linkURL">
+                                <input type="hidden" name="editFavourite" value="@link.favourite">
+                                <button type="submit" class="btn btn-info" asp-controller="Admin" asp-action="EditLink"><i class="fa fa-pencil"></i></button>
+                            </form>
+                            <form>
+                                <input type="hidden" name="DeleteLinkID" value="@link.id">
+                                <input type="hidden" name="DeleteLinkName" value="@link.linkName">
+                                <input type="hidden" name="DeleteLinkURL" value="@link.linkURL">
+                                <button tpye="submit" class="btn btn-danger" asp-controller="Admin" asp-action="DeleteLink"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <img src="https://www.google.com/s2/favicons?domain_url=@link.linkURL"><a href="@link.linkURL" target="_blank"> @link.linkName</a>
+                        </div>
+                    }
+                }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        startAutoLogout();
+    </script>
+}

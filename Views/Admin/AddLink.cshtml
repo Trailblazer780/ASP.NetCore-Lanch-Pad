@@ -1,0 +1,55 @@
+@model LaunchPadAdminModel;
+
+<div>
+    <span><h1 class="text-info">INET2005 Project 3 --- Launch Pad -- Add Link <form asp-controller="Admin" asp-action="Logout" ><input class="btn btn-info" type="Submit" value="Logout"></form></h1></span>
+    <span id="lblExpire" class="text-warning" style="margin-left:10px; font-size: medium;"></span>
+    <div class="container">
+        <div class="row">
+            <div class="row" style="padding-top: 5px;">
+                <h3>Add Link Below</h3>
+            </div>
+            <div class="row">
+                <form method="post">
+                    <input type="hidden" name="catID" asp-for="@Model.categoryID">
+                    <div class="form-row" style="padding-bottom: 5px;">
+                        <div class="col-md-12" style="padding-bottom: 4px;">
+                            <label>Category:</label>
+                            <input type="text" asp-for="@Model.categoryName" name="catID" class="form-control" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-bottom: 5px;">
+                        <div class="col-md-12" style="padding-bottom: 4px;">
+                            <label>Link Name:</label>
+                            <input type="text" asp-for="@Model.linkName" name="linkName" class="form-control" />
+                            <span asp-validation-for="@Model.linkName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-bottom: 5px;">
+                        <div class="col-lg-12" style="padding-bottom: 4px;">
+                            <label>Href:</label>
+                            <input type="text" asp-for="@Model.linkURL" name="linkURL" class="form-control" />
+                            <span asp-validation-for="@Model.linkURL" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="favourite" name="isFavourite">
+                        <input type="hidden" value="false" name="isFavourite" />
+                        <label class="form-check-label" for="flexCheckDefault">Pin Link to top</label>
+                    </div>
+                    <div class="form-row" style="padding-left: 5px;">
+                        <div>
+                            <span><button class="btn btn-info" type="submit" asp-controller="Admin" asp-action="AddLinkSubmit">Edit</button></span>
+                            <span><a asp-controller="Admin" asp-action="Index"><input type="button" class="btn btn-info" value="Cancel"></a></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        startAutoLogout();
+    </script>
+}

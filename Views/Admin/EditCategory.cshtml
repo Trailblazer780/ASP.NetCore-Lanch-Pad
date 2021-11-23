@@ -1,0 +1,37 @@
+@model Categories;
+
+<div>
+    <span><h1 class="text-info">INET2005 Project 3 --- Launch Pad -- Edit Category <form asp-controller="Admin" asp-action="Logout" ><input class="btn btn-info" type="Submit" value="Logout"></form></h1></span>
+    <span id="lblExpire" class="text-warning" style="margin-left:10px; font-size: medium;"></span>
+    <div class="container">
+        <div class="row">
+            <div class="row" style="padding-top: 5px;">
+                <h3>Edit the category data below</h3>
+            </div>
+            <div class="row">
+                <form method="post">
+                    <input type="hidden" asp-for="@Model.id">
+                    <div class="form-row" style="padding-bottom: 5px;">
+                        <div class="col-md-12" style="padding-bottom: 4px;">
+                            <label>Category Title:</label>
+                            <input type="text" asp-for="@Model.categoryName" class="form-control" />
+                            <span asp-validation-for="@Model.categoryName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row" style="padding-left: 5px;">
+                        <div>
+                            <span><button class="btn btn-info" type="submit" asp-controller="Admin" asp-action="EditCategorySubmit">Edit</button></span>
+                            <span><button class="btn btn-info" type="submit" asp-controller="Admin" asp-action="Index">Cancel</button></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        startAutoLogout();
+    </script>
+}
