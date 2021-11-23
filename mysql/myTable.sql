@@ -41,14 +41,15 @@ INSERT INTO `tblCategory` (`id`, `categoryName`) VALUES
 ('4', 'Social Media');
 
 INSERT INTO `tblLinks` (`id`, `linkName`, `linkURL`, `favourite`, `categoryID`) VALUES
-('1', 'Google', 'https://www.google.ca', 'false', '1'),
-('2', 'Facebook', 'https://www.facebook.com', 'false', '4'),
-('3', 'YouTube', 'https://www.youtube.com', 'false', '3'),
-('4', 'Reddit', 'https://www.reddit.com', 'false', '4'),
-('5', 'Stack Overflow', 'https://www.stackoverflow.com', 'false', '1'),
-('6', 'Github', 'https://www.github.com', 'false', '1'),
-('7', 'Twitter', 'https://www.twitter.com', 'false', '4'),
-('8', 'LinkedIn', 'https://www.linkedin.com', 'false', '4'),
-('9', 'Brightspace', 'https://nscconline.desire2learn.com/d2l/home', 'false', '2');
+(1,	'Google',	'https://www.google.ca',	'true',	1),
+(2,	'Facebook',	'https://www.facebook.com',	'false',	4),
+(3,	'YouTube',	'https://www.youtube.com',	'true',	3),
+(4,	'Reddit',	'https://www.reddit.com',	'false',	4),
+(7,	'Twitter',	'https://www.twitter.com',	'false',	4),
+(8,	'LinkedIn',	'https://www.linkedin.com',	'false',	4),
+(9,	'Brightspace',	'https://nscconline.desire2learn.com/d2l/home',	'true',	2),
+(14,	'NSCC',	'https://www.nscc.ca/',	'true',	2),
+(16,	'Netflix',	'https://www.netflix.com/ca/',	'true',	3),
+(17,	'Crave',	'https://www.crave.ca/en/',	'true',	3);
 
 
