@@ -22,7 +22,7 @@
                         <div class="col-md-12" style="padding-bottom: 4px;">
                             <label>Label:</label>
                             <input type="text" name="editLinkName" asp-for="@Model.linkName" class="form-control" />
-                            <span asp-validation-for="@Model.linkName" class="text-danger"/>
+                            <span asp-validation-for="@Model.linkName" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-row" style="padding-bottom: 5px;">
@@ -40,7 +40,7 @@
                     <div class="form-row" style="padding-left: 5px;">
                         <div>
                             <span><button class="btn btn-info" type="submit" asp-controller="Admin" asp-action="EditLinkSubmit">Edit</button></span>
-                            <span><a asp-controller="Home" asp-action="Index"><input type="button" class="btn btn-info" value="Cancel"></a></span>
+                            <span><a asp-controller="Admin" asp-action="Index"><input type="button" class="btn btn-info" value="Cancel"></a></span>
                         </div>
                     </div>
                 </form>
