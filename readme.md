@@ -13,8 +13,8 @@ You must have docker installed on your computer to use this web application
 3. Open a second terminal and run the command `dotnet watch run`
 4. Open a web browser and hit `http://localhost`
 
-Login for Admin:
-Username: Ethan
+Login for Admin:<br/>
+Username: Ethan <br/>
 Password: Ethan123
 
 Below is a screenshot of the web application in use:
