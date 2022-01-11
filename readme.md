@@ -17,7 +17,7 @@ Login for Admin:<br/>
 Username: Ethan <br/>
 Password: Ethan123
 
-Below is a screenshot of the web application in use:
+Below is screenshots of the web application in use:
 ## Fist hit of web app:
 ![alt text](https://github.com/Trailblazer780/launchPad/blob/master/Pictures/Picture1.JPG)
 
